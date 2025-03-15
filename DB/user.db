@@ -6,6 +6,7 @@ CREATE TABLE user (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
     picture VARCHAR(255),
     date_of_birth DATE,
     country VARCHAR(100),
