@@ -1,0 +1,35 @@
+body {
+  background-color: #121212;
+  color: #E0E0E0;
+}
+.card {
+  background-color: #1E1E1E;
+  box-shadow: 0 4px 10px rgba(179, 172, 172, 0.432);
+}
+.card-header {
+  background-color: #212121;
+  color: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+.form-label{
+  color: #ffffff;
+}
+.form-control {
+  background-color: #2a2a2a;
+  border: 1px solid #ffffff;
+  color: #E0E0E0;
+}
+.form-control:focus {
+  color: white;
+  background-color: #333;
+  border-color: #1766cc;
+  box-shadow: 0 0 8px #1766cc;
+}
+
+.form-check-label {
+  color: #E0E0E0;
+}
+
+.modal-body{
+  color: #121212;
+}
