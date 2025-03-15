@@ -1,0 +1,16 @@
+CREATE DATABASE cms_php;
+USE cms_php;
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    picture VARCHAR(255),
+    date_of_birth DATE,
+    country VARCHAR(100),
+    city VARCHAR(100),
+    website VARCHAR(255),
+    bio TEXT,
+    is_admin BOOLEAN DEFAULT FALSE
+);
