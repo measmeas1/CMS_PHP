@@ -44,89 +44,90 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/register.css">
 </head>
-<body class="bg-light">
-  <div class="container mt-5">
-      <div class="row justify-content-center">
-          <div class="col-md-6">
-              <div class="card shadow-lg">
-                  <div class="card-header text-center bg-primary text-white">
-                      <h4>User Registration</h4>
-                  </div>
-                  <div class="card-body">
-                      <form action="register.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-                          
-                          <div class="mb-3">
-                              <label class="form-label">Full Name</label>
-                              <input type="text" name="name" class="form-control" required>
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Email</label>
-                              <input type="email" name="email" class="form-control" required>
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Password</label>
-                              <input type="password" name="password" class="form-control" required>
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Confirm Password</label>
-                              <input type="password" name="confirm_password" class="form-control" required>
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Gender:</label>
-                              <select name="gender" >
-                                  <option value="Male">Male</option>
-                                  <option value="Female">Female</option>
-                              </select>
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Profile Picture</label>
-                              <input type="file" name="picture" class="form-control">
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Date of Birth</label>
-                              <input type="date" name="date_of_birth" class="form-control">
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Country</label>
-                              <input type="text" name="country" class="form-control">
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">City</label>
-                              <input type="text" name="city" class="form-control">
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Website</label>
-                              <input type="url" name="website" class="form-control">
-                          </div>
-  
-                          <div class="mb-3">
-                              <label class="form-label">Bio</label>
-                              <textarea name="bio" class="form-control" rows="3"></textarea>
-                          </div>
-  
-                          <div class="form-check mb-3">
-                              <input class="form-check-input" type="checkbox" name="is_admin" value="1">
-                              <label class="form-check-label">Is Admin</label>
-                          </div>
-  
-                          <button type="submit" class="btn btn-primary w-100">Register</button>
-                          <p class="mt-2 text-center">Already have an account? <a href="login.php">Login here</a></p>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>User Registration</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="register.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" name="confirm_password" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Gender</label>
+                                <select name="gender" class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Profile Picture</label>
+                                <input type="file" name="picture" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" name="date_of_birth" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" name="country" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" name="city" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Website</label>
+                                <input type="url" name="website" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Bio</label>
+                                <textarea name="bio" class="form-control" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" name="is_admin" value="1">
+                                <label class="form-check-label">Is Admin</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                            <p class="mt-2 text-center text-white">Already have an account? <a href="login.php">Login here</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   
   <?php if ($success): ?>
       <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
