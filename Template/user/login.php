@@ -3,8 +3,8 @@
   include '../../DB/db.php';
   
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
     // Check if both email and password are filled
     if (empty($email) || empty($password)) {
@@ -27,6 +27,7 @@
         // Verify password
         if (password_verify($password, $verify)) {
           $_SESSION['id'] = $id;
+          $_SESSION['is_admin'] = $row['is_admin'];
           echo "<script>window.open('home.php', '_self');</script>";
         } else {
           echo "<script>
