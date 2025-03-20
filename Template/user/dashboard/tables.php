@@ -198,9 +198,13 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                                                 <img src="../../../img/<?php echo $picture ?>" alt="<?php echo $name ?>" class="rounded-circle img-fluid" style="width: 50px; height: 50px;">
                                             </td>
                                             <td>
-                                                <a href="../delete.php?id=<?php echo $id; ?>" class="btn btn-action btn-danger btn-sm" onclick="return confirm('Are you sure?');">
-                                                    <i class="fa-trash fas"></i>
-                                                </a>
+                                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
+                                                    <a href="../delete.php?id=<?php echo $id; ?>" class="btn btn-action btn-danger btn-sm" onclick="return confirm('Are you sure?');">
+                                                        <i class="fa-trash fas"></i>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <span class="text-muted">No Access</span>
+                                                <?php } ?>
                                             </td>
                                     </tr>
                                 <?php } ?>
