@@ -191,48 +191,50 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                            <th>Date of Birth</th>
+                                            <th>Website</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                            <th>Date of Birth</th>
+                                            <th>Website</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <?php 
+                                            // Fetch data from database
+                                            $result = mysqli_query($con, "SELECT * FROM user");
+
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                $name = $row['name'];
+                                                $email = $row['email'];
+                                                $gender = $row['gender'];
+                                                $country = $row['country'];
+                                                $city = $row['city'];
+                                                $dob = $row['date_of_birth'];
+                                                $website = $row['website'];
+                                            
+                                            ?>
+                                            <td><?php echo $name ?></td>
+                                            <td><?php echo $email ?></td>
+                                            <td><?php echo $gender ?></td>
+                                            <td><?php echo $country ?></td>
+                                            <td><?php echo $city ?></td>
+                                            <td><?php echo $dob ?></td>
+                                            <td><?php echo $website ?></td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
