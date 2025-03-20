@@ -2,18 +2,18 @@
 session_start();
 include '../../DB/db.php';
 
-$id = $_SESSION['id'];
-$query = "SELECT * FROM user WHERE id = '$id'";
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_array($result);
-$name = $row['name'] ?? 'Guest';
-$picture = $row['picture'] ?? 'logo_1.jpg';
-$email = $row['email'];
-$country = $row['country'];
-$city = $row['city'];
-$dob = $row['date_of_birth'];
-$website = $row['website'];
-$bio = $row['bio'];
+  $id = $_SESSION['id'];
+  $query = "SELECT * FROM user WHERE id = '$id'";
+  $result = mysqli_query($con, $query);
+  $row = mysqli_fetch_array($result);
+  $name = $row['name'] ?? 'Guest';
+  $picture = $row['picture'] ?? 'logo_1.jpg';
+  $email = $row['email'];
+  $country = $row['country'];
+  $city = $row['city'];
+  $dob = $row['date_of_birth'];
+  $website = $row['website'];
+  $bio = $row['bio'];
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +144,7 @@ $bio = $row['bio'];
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../img/<?php echo htmlspecialchars($picture) ?>" alt="Profile" class="rounded-circle" width="40" height="40">
+          <img src="../../img/<?php echo htmlspecialchars($picture) ?>" alt="Profile" class="rounded-circle" width="40" height="40">
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="user_profile.php">Profile</a></li>
@@ -227,7 +227,7 @@ $bio = $row['bio'];
         <div class="row">
           <!-- Column 1: Name & Email -->
           <div class="col-md-4 profile-column text-center">
-            <img src="../img/<?php echo htmlspecialchars($picture); ?>" alt="Profile Picture" class="profile-img">
+            <img src="../../img/<?php echo htmlspecialchars($picture); ?>" alt="Profile Picture" class="profile-img">
             <h4 class="mt-2"><?php echo htmlspecialchars($name); ?></h4>
             <p><?php echo htmlspecialchars($email); ?></p>
           </div>
