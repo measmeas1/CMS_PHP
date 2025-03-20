@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include '../DB/db.php';
+    include '../../DB/db.php';
     if (!isset($_SESSION['id'])) {
         header("Location: login.php");
         exit();
@@ -98,7 +98,7 @@
 
 <div class="content">
     <div class="d-flex align-items-center mb-3">
-        <img src="../img/<?php echo $picture; ?>" class="rounded-circle me-3" width="50" height="50" alt="Profile Picture">
+        <img src="../../img/<?php echo $picture; ?>" class="rounded-circle me-3" width="50" height="50" alt="Profile Picture">
         <h2>Welcome, <?php echo $name; ?>!</h2>
     </div>
     <p>Manage your CMS here.</p>

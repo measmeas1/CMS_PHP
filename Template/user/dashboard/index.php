@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include '../../DB/db.php';
+    include '../../../DB/db.php';
 
     $id = $_SESSION['id'];
     $query = "SELECT * FROM user WHERE id = '$id'";
@@ -40,7 +40,7 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../img/<?php echo htmlspecialchars($picture) ?>" alt="Profile" class="rounded-circle" width="40" height="40">
+                    <img src="../../../img/<?php echo htmlspecialchars($picture) ?>" alt="Profile" class="rounded-circle" width="40" height="40">
                 </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../user_profile.php">Profile</a></li>
