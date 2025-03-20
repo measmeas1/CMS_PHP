@@ -81,6 +81,7 @@
         }
         .rounded-circle {
             box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+            object-fit: cover;
         }
 
     </style>
@@ -88,12 +89,12 @@
 <body>
 
 <div class="sidebar">
-    <h4 class="text-center">Admin Panel</h4>
-    <a href="dashboard/index.php"><i class="fas fa-home"></i> Dashboard</a>
-    <a href="#"><i class="fas fa-users"></i> Users</a>
-    <a href="#"><i class="fas fa-edit"></i> Posts</a>
-    <a href="setting.php"><i class="fas fa-cog"></i> Settings</a>
-    <a href="#" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <h4 class="text-center">CMS HOME</h4>
+    <a href="dashboard/index.php"><i class="fa-home fas"></i> Dashboard</a>
+    <a href="dashboard/tables.php"><i class="fa-users fas"></i> Users</a>
+    <a href="#"><i class="fa-edit fas"></i> Posts</a>
+    <a href="setting.php"><i class="fa-cog fas"></i> Settings</a>
+    <a href="#" onclick="confirmLogout()"><i class="fa-sign-out-alt fas"></i> Logout</a>
 </div>
 
 <div class="content">
@@ -105,27 +106,27 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="card p-4 text-white bg-primary">
-                <h5><i class="fas fa-user"></i> Total Users</h5>
+            <div class="card bg-primary p-4 text-white">
+                <h5><i class="fa-user fas"></i> Total Users</h5>
                 <p>120</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card p-4 text-white bg-success">
-                <h5><i class="fas fa-file-alt"></i> Total Posts</h5>
+            <div class="card bg-success p-4 text-white">
+                <h5><i class="fa-file-alt fas"></i> Total Posts</h5>
                 <p>45</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card p-4 text-white bg-danger">
-                <h5><i class="fas fa-comments"></i> Pending Comments</h5>
+            <div class="card bg-danger p-4 text-white">
+                <h5><i class="fa-comments fas"></i> Pending Comments</h5>
                 <p>10</p>
             </div>
         </div>
     </div>
 </div>
 
-<i class="fas fa-moon fa-lg toggle-btn mt-3" id="darkModeToggle"></i>
+<i class="fa-lg fa-moon fas mt-3 toggle-btn" id="darkModeToggle"></i>
 
 <script>
     function confirmLogout() {
