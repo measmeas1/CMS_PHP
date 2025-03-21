@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $city = $_POST['city'];
   $website = $_POST['website'];
   $bio = $_POST['bio'];
-  $admin = isset($_POST['is_admin']) ? 1 : 0;
 
   // Handle profile picture update
   if (!empty($_FILES['picture']['name'])) {
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $update_query = "UPDATE user SET name='$name', gender='$gender', picture='$picture', 
                     date_of_birth='$date_of_birth', country='$country', city='$city', 
-                    website='$website', bio='$bio', is_admin='$admin' WHERE id='$id'";
+                    website='$website', bio='$bio' WHERE id='$id'";
 
   if (mysqli_query($con, $update_query)) {
     // Redirect to home page after successful update
@@ -109,11 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="mb-3">
                 <label class="form-label">Bio</label>
                 <textarea name="bio" class="form-control" rows="3"><?php echo $user['bio']; ?></textarea>
-              </div>
-
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" name="is_admin" value="1" <?php if ($user['is_admin'] == 1) echo 'checked'; ?>>
-                <label class="form-check-label">Make to Admin</label>
               </div>
 
               <button type="submit" class="btn btn-primary w-100">Update Profile</button>
