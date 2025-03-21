@@ -199,11 +199,14 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                                             </td>
                                             <td>
                                                 <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
+                                                <a href="../make_admin.php?id=<?php echo $id; ?>" class="btn btn-action btn-sm btn-warning">
+                                                    <i class="fa-edit fas"></i>
+                                                </a>
+                                                <?php } ?>
+                                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
                                                     <a href="../delete.php?id=<?php echo $id; ?>" class="btn btn-action btn-danger btn-sm" onclick="return confirm('Are you sure?');">
                                                         <i class="fa-trash fas"></i>
                                                     </a>
-                                                <?php } else { ?>
-                                                    <span class="text-muted">No Access</span>
                                                 <?php } ?>
                                             </td>
                                     </tr>
