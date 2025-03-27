@@ -10,8 +10,10 @@ $query = "SELECT posts.*, user.name FROM posts JOIN user ON posts.user_id = user
 $result = mysqli_query($con, $query);
 
 if (!$row = mysqli_fetch_assoc($result)) {
-  echo "<h3 class='text-center mt-5'>Post Not Found!</h3>";
-  exit();
+  // Instead of redirecting to home, we will show a modal or message in the same page
+  $postNotFound = true;
+} else {
+  $postNotFound = false;
 }
 ?>
 
@@ -77,23 +79,29 @@ if (!$row = mysqli_fetch_assoc($result)) {
 <body>
 
   <div class="container mt-5">
-    <a href="../user/home.php" class="btn btn-outline-secondary back-btn">
+    <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-outline-secondary back-btn">
       <i class="fa fa-arrow-left"></i> Back to Home
     </a>
 
-    <div class="card">
-      <h1 class="text-center mb-3"><?php echo $row['title']; ?></h1>
-      <p class="text-muted text-center">
-        Published by <b><?php echo $row['name']; ?></b> on <?php echo date("F d, Y", strtotime($row['p_date'])); ?>
-      </p>
-      <img src="../../img/post_img/<?php echo $row['picture']; ?>" class="post-image mt-3" alt="Post Image">
+    <?php if ($postNotFound): ?>
+      <div class="alert alert-danger text-center" role="alert">
+        The post you are looking for has been deleted or does not exist.
+      </div>
+    <?php else: ?>
+      <div class="card">
+        <h1 class="text-center mb-3"><?php echo $row['title']; ?></h1>
+        <p class="text-muted text-center">
+          Published by <b><?php echo $row['name']; ?></b> on <?php echo date("F d, Y", strtotime($row['p_date'])); ?>
+        </p>
+        <img src="../../img/post_img/<?php echo $row['p_picture']; ?>" class="post-image mt-3" alt="Post Image">
 
-      <h4 class="mt-4">Description:</h4>
-      <p><?php echo $row['description']; ?></p>
+        <h4 class="mt-4">Description:</h4>
+        <p><?php echo $row['description']; ?></p>
 
-      <h4 class="mt-4">Content:</h4>
-      <p><?php echo nl2br($row['content']); ?></p>
-    </div>
+        <h4 class="mt-4">Content:</h4>
+        <p><?php echo nl2br($row['content']); ?></p>
+      </div>
+    <?php endif; ?>
   </div>
 
   <script>

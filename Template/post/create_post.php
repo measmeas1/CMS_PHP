@@ -8,20 +8,20 @@ $row = mysqli_fetch_array($result);
 $name = $row['name'] ?? 'Guest';
 $picture = $row['picture'] ?? 'logo_1.jpg';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $content = $_POST['content'];
-    $picture = $_FILES['picture']['name'];
-    $picture_tmp = $_FILES['picture']['tmp_name'];
+    $picture = $_FILES['p_picture']['name'];
+    $picture_tmp = $_FILES['p_picture']['tmp_name'];
     $date = date('Y-m-d H:i:s');
     $p_date = $date;
     $id = $_SESSION['id'];
     move_uploaded_file($picture_tmp, "../../img/post_img/$picture");
 
-    $query = "INSERT INTO posts (title, description, content, picture, p_date, user_id)
+    $query = "INSERT INTO posts (title, description, content, p_picture, p_date, user_id)
               VALUES ('$title', '$description', '$content', '$picture', '$date', '$id')";
-    if(mysqli_query($con, $query)){
+    if (mysqli_query($con, $query)) {
         echo "<script>alert('Create Post Successful!')</script>";
         header("Location: ../user/home.php");
     }
@@ -69,7 +69,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="../user/setting.php">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -92,36 +91,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <div class="sb-nav-link-icon"><i class="fa-tachometer-alt fas"></i></div>
                             Dashboard
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
-
-                        <a class="collapsed nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fa-book-open fas"></i></div>
-                            Pages
-                            <div class="sb-sidenav-collapse-arrow"><i class="fa-angle-down fas"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="nav accordion sb-sidenav-menu-nested" id="sidenavAccordionPages">
-                                <a class="collapsed nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fa-angle-down fas"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="nav sb-sidenav-menu-nested">
-                                        <a class="nav-link" href="../user/login.php">Login</a>
-                                        <a class="nav-link" href="../user/register.php">Register</a>
-                                        <a class="nav-link" href="#">Forgot Password</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="../user/dashboard/charts.php">
-                            <div class="sb-nav-link-icon"><i class="fa-chart-area fas"></i></div>
-                            Charts
-                        </a>
                         <a class="nav-link" href="../user/dashboard/tables.php">
                             <div class="sb-nav-link-icon"><i class="fa-users fas"></i></div>
                             Users
+                        </a>
+                        <a class="nav-link" href="post_table.php">
+                            <div class="sb-nav-link-icon"><i class="fa-podcast fas"></i></div>
+                            Posts
+                        </a>
+                        <a class="nav-link" href="user_post.php">
+                            <div class="sb-nav-link-icon"><i class="fa-user-friends fas"></i></div>
+                            Your Post
                         </a>
                     </div>
                 </div>
@@ -153,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     <div class="mb-3">
                         <label for="picture" class="form-label">Upload Picture</label>
-                        <input type="file" class="form-control bg-secondary text-white" id="picture" name="picture">
+                        <input type="file" class="form-control bg-secondary text-white" id="picture" name="p_picture">
                     </div>
 
                     <div class="mb-3">
