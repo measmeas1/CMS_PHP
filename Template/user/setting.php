@@ -4,7 +4,6 @@ $success = false;
 $error = "";
 
 // Fetch user data (Assuming user ID is stored in session)
-session_start();
 $id = $_SESSION['id'];
 $query = "SELECT * FROM user WHERE id='$id'";
 $result = mysqli_query($con, $query);
@@ -81,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label class="form-label">Profile Picture</label>
                 <input type="file" name="picture" class="form-control">
                 <?php if ($user['picture']) {
-                  echo "<img src='../../img/" . $user['picture'] . "' width='100' class='rounded-circle mt-2'>";
+                  echo "<img src='../../img/" . $user['picture'] . "'width='100' height='100' class='rounded-circle mt-2'>";
                 } ?>
               </div>
 

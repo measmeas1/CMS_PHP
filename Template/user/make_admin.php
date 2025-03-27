@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../../DB/db.php';
 
 // Check if the logged-in user is an admin

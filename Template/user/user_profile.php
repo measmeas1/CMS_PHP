@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../../DB/db.php';
 
   $id = $_SESSION['id'];
@@ -149,7 +148,6 @@ include '../../DB/db.php';
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="user_profile.php">Profile</a></li>
           <li><a class="dropdown-item" href="setting.php">Settings</a></li>
-          <li><a class="dropdown-item" href="#!">Activity Log</a></li>
           <li>
             <hr class="dropdown-divider" />
           </li>
@@ -206,13 +204,13 @@ include '../../DB/db.php';
               </nav>
             </div>
             <div class="sb-sidenav-menu-heading">Addons</div>
-            <a class="nav-link" href="charts.php">
+            <a class="nav-link" href="dashboard/charts.php">
               <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
               Charts
             </a>
-            <a class="nav-link" href="tables.php">
-              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-              Tables
+            <a class="nav-link" href="dashboard/tables.php">
+              <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+              User
             </a>
           </div>
         </div>

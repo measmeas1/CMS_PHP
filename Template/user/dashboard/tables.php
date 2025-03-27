@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../../../DB/db.php';
 $id = $_SESSION['id'];
 $query = "SELECT * FROM user WHERE id = '$id'";
@@ -18,7 +17,7 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Tables - SB Admin</title>
+    <title>User Table</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -26,13 +25,42 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
         .img-fluid {
             object-fit: cover;
         }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .sb-sidenav .nav-link {
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            color: #ffffff;
+
+        }
+
+        #datatablesSimple {
+            color: white;
+
+        }
+
+        #datatablesSimple th,
+        #datatablesSimple td {
+            color: white !important;
+        }
+
+        #datatablesSimple thead {
+            background-color: #333;
+        }
     </style>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="navbar navbar-dark navbar-expand bg-dark sb-topnav">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Tables</a>
+        <a class="navbar-brand ps-3" href="tables.php">Users Table</a>
         <!-- Sidebar Toggle-->
         <button class="order-1 order-lg-0 btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fa-bars fas"></i></button>
         <!-- Navbar Search-->
@@ -49,8 +77,8 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                     <img src="../../../img/<?php echo htmlspecialchars($picture) ?>" alt="Profile" class="rounded-circle" width="40" height="40">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="../user_profile.php">Profile</a></li>
                     <li><a class="dropdown-item" href="../setting.php">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -100,19 +128,22 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                                     <nav class="nav sb-sidenav-menu-nested">
                                         <a class="nav-link" href="../login.php">Login</a>
                                         <a class="nav-link" href="../register.php">Register</a>
-                                        <a class="nav-link" href="#">Forgot Password</a>
                                     </nav>
                                 </div>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.php">
-                            <div class="sb-nav-link-icon"><i class="fa-chart-area fas"></i></div>
-                            Charts
-                        </a>
+                        <div class="sb-sidenav-menu-heading">Tables</div>
                         <a class="nav-link" href="tables.php">
-                            <div class="sb-nav-link-icon"><i class="fa-table fas"></i></div>
-                            Tables
+                            <div class="sb-nav-link-icon"><i class="fa-users fas"></i></div>
+                            Users
+                        </a>
+                        <a class="nav-link" href="../../post/post_table.php">
+                            <div class="sb-nav-link-icon"><i class="fa-podcast fas"></i></div>
+                            Posts
+                        </a>
+                        <a class="nav-link" href="../../post/user_post.php">
+                            <div class="sb-nav-link-icon"><i class="fa-user-friends fas"></i></div>
+                            Your Post
                         </a>
                     </div>
                 </div>
@@ -125,7 +156,7 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Tables</h1>
+                    <h1 class="mt-4">Users Tables</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                         <li class="active breadcrumb-item">Tables</li>
@@ -198,16 +229,17 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                                                 <img src="../../../img/<?php echo $picture ?>" alt="<?php echo $name ?>" class="rounded-circle img-fluid" style="width: 50px; height: 50px;">
                                             </td>
                                             <td>
-                                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
-                                                <a href="../make_admin.php?id=<?php echo $id; ?>" class="btn btn-action btn-sm btn-warning">
-                                                    <i class="fa-edit fas"></i>
-                                                </a>
-                                                <?php } ?>
-                                                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
-                                                    <a href="../delete.php?id=<?php echo $id; ?>" class="btn btn-action btn-danger btn-sm" onclick="return confirm('Are you sure?');">
-                                                        <i class="fa-trash fas"></i>
+                                                <div class="d-flex my-2">
+                                                    <a href="../make_admin.php?id=<?php echo $id; ?>" class="btn btn-action btn-sm btn-warning">
+                                                        <i class="fa-edit fas"></i>
                                                     </a>
-                                                <?php } ?>
+
+                                                    <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $row['is_admin'] == 0) { ?>
+                                                        <a href="../delete.php?id=<?php echo $id; ?>" class="btn btn-action btn-danger btn-sm ms-1" onclick="return confirm('Are you sure?');">
+                                                            <i class="fa-trash fas"></i>
+                                                        </a>
+                                                </div>
+                                            <?php } ?>
                                             </td>
                                     </tr>
                                 <?php } ?>
@@ -217,7 +249,7 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                     </div>
                 </div>
             </main>
-            <footer class="bg-light mt-auto py-4">
+            <footer class="bg-dark mt-auto py-4">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2023</div>

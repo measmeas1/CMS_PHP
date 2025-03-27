@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../../DB/db.php';
 
 // Check if user is logged in
@@ -45,7 +44,7 @@ if (isset($_GET['id'])) {
     // Execute delete query for non-admin users
     $delete_query = "DELETE FROM user WHERE id='$delete_id'";
     if (mysqli_query($con, $delete_query)) {
-        header("Location: dashboard/table.php"); // Redirect back to user list
+        header("Location: dashboard/tables.php"); 
         exit();
     } else {
         echo "Error: " . mysqli_error($con);
