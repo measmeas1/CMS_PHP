@@ -90,7 +90,7 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="../home.php">
+                        <a class="nav-link" href="../../../index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
                             Home
                         </a>
@@ -139,7 +139,7 @@ $picture = $row['picture'] ?? 'logo_1.jpg';
                             <div class="sb-nav-link-icon"><i class="fas fa-podcast"></i></div>
                             Posts
                         </a>
-                        <a class="nav-link" href="user_post.php">
+                        <a class="nav-link" href="../../post/user_post.php">
                             <div class="sb-nav-link-icon"><i class="fa-user-friends fas"></i></div>
                             Your Post
                         </a>

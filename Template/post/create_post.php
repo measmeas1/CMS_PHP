@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               VALUES ('$title', '$description', '$content', '$picture', '$date', '$id')";
     if (mysqli_query($con, $query)) {
         echo "<script>alert('Create Post Successful!')</script>";
-        header("Location: ../user/home.php");
+        header("Location: ../../index.php");
     }
 }
 ?>
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="../user/home.php">
+                        <a class="nav-link" href="../../index.php">
                             <div class="sb-nav-link-icon"><i class="fa-bars fas"></i></div>
                             Home
                         </a>

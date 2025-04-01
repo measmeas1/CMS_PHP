@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $update_query = "UPDATE posts SET title='$title', description='$description', content='$content', p_picture='$picture', p_date='$date' WHERE p_id='$id'";
 
   if (mysqli_query($con, $update_query)) {
-    header("Location: ../user/home.php");
+    header("Location: ../../index.php");
     exit(); 
   } else {
     $error = "Error: " . mysqli_error($con);

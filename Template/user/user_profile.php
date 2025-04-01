@@ -162,7 +162,7 @@ include '../../DB/db.php';
         <div class="sb-sidenav-menu">
           <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link" href="home.php">
+            <a class="nav-link" href="../../index.php">
               <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
               Home
             </a>
@@ -197,7 +197,6 @@ include '../../DB/db.php';
                   <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="login.php">Login</a>
                     <a class="nav-link" href="register.php">Register</a>
-                    <a class="nav-link" href="#">Forgot Password</a>
                   </nav>
                 </div>
 

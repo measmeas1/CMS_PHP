@@ -27,7 +27,7 @@
         if (password_verify($password, $verify)) {
           $_SESSION['id'] = $id;
           $_SESSION['is_admin'] = $row['is_admin'];
-          echo "<script>window.open('home.php', '_self');</script>";
+          echo "<script>window.open('../../index.php', '_self');</script>";
         } else {
           echo "<script>
                   document.addEventListener('DOMContentLoaded', function() {
